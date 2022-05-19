@@ -9,14 +9,14 @@ interface UserProviderProps {
   children: React.ReactNode;
 }
 
-interface ListMessage {
-  addressee: string;
+interface Message {
+  from: string;
   message: string;
 }
 
 interface InitialUserState {
   isActive: boolean;
-  listMessage: ListMessage[];
+  listMessage: Message[] | any[];
 }
 
 const initialState: InitialUserState = {

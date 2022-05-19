@@ -1,8 +1,9 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import ioClient from "socket.io-client";
 
-import { environmentVariables } from "@/utilities";
 import { UserContext } from "@/context";
+import { environmentVariables } from "@/global";
+import { socketKeyEvents } from "@/utilities";
 
 interface ListMessage {
   addressee: string;
@@ -13,7 +14,7 @@ const socket = ioClient(environmentVariables.HOST_SERVER);
 
 function Form(): React.ReactElement {
   const { setUserData } = useContext(UserContext);
-  const [formData, setFormData] = useState({ addressee: "", message: "" });
+  const [formData, setFormData] = useState({ from: "", message: "" });
 
   const [isConnected, setIsConnected] = useState<boolean>(socket.connected);
 
@@ -22,24 +23,24 @@ function Form(): React.ReactElement {
   }
 
   function handleReset() {
-    setFormData((prev) => ({ ...prev, message: "", addressee: "" }));
+    setFormData((prev) => ({ ...prev, from: "", message: "" }));
   }
 
   function handleSubmit(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault();
     if (Object.values(formData).includes("")) return;
 
-    // console.log("message: ", formData);
-    socket.emit("message-to-server", formData);
+    console.log("message: ", formData);
+    socket.emit(socketKeyEvents.MESSAGE_TO_SERVER, formData);
     handleReset();
   }
 
   useEffect(() => {
     (() => {
-      socket.on("connect", () => setIsConnected(true));
-      socket.on("disconnect", () => setIsConnected(false));
-      socket.on("message-from-server", (data: ListMessage) => {
-        console.log("message-from-server: ", data);
+      socket.on(socketKeyEvents.CONNECTION, () => setIsConnected(true));
+      socket.on(socketKeyEvents.DISCONNECT, () => setIsConnected(false));
+      socket.on(socketKeyEvents.MESSAGE_FROM_SERVER, (data: ListMessage) => {
+        console.log(socketKeyEvents.MESSAGE_FROM_SERVER, ":", data);
         setUserData((prev) => ({
           ...prev,
           isActive: isConnected,
@@ -49,26 +50,26 @@ function Form(): React.ReactElement {
     })();
 
     return () => {
-      socket.off("connect");
-      socket.off("disconnect");
-      socket.off("message-from-server");
+      socket.off(socketKeyEvents.CONNECTION);
+      socket.off(socketKeyEvents.DISCONNECT);
+      socket.off(socketKeyEvents.MESSAGE_FROM_SERVER);
     };
   }, []);
 
   return (
     <form noValidate onSubmit={handleSubmit}>
       <div className="mb-6">
-        <label htmlFor="addressee" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-          Addressee
+        <label htmlFor="from" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+          From:
         </label>
         <input
           type="text"
-          id="addressee"
-          name="addressee"
+          id="from"
+          name="from"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
           placeholder="Ej. Mr.Blich"
           onChange={handleChange}
-          value={formData.addressee}
+          value={formData.from}
         />
       </div>
       <div className="mb-6">

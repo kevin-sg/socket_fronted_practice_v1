@@ -1,5 +1,5 @@
 interface ListMessage {
-  addressee: string;
+  from: string;
   message: string;
 }
 
@@ -14,7 +14,7 @@ function ListGroup({ items }: ListGroupProps): React.ReactElement {
         <li key={index} className="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
           <div className="flex gap-2 justify-evenly items-left flex-col">
             <p className="text-left text-sm text-green-400 font-semibold">
-              Addressee: <span className="text-white/80">{item.addressee}</span>
+              From: <span className="text-white/80">{item.from}</span>
             </p>
             <p className="text-left text-sm text-yellow-400 font-base">
               Message: <span className="text-white/80">{item.message}</span>
