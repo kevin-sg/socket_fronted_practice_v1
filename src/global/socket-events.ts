@@ -1,6 +1,11 @@
-export interface SocketKeyEvents {
-  CONNECTION: "connection";
+export interface ISocketKeyEvents {
+  CONNECT: "connect";
   DISCONNECT: "disconnect";
-  MESSAGE_TO_SERVER: "message_to_server";
-  MESSAGE_FROM_SERVER: "message_from_server";
+
+  COUNT_BAND_TO_SERVER: "count_band_to_server";
+  CREATE_BAND_TO_SERVER: "create_band_to_server";
+  CHANGE_BAND_TO_SERVER: "change_band_to_server";
+  REMOVE_BAND_TO_SERVER: "remove_band_to_server";
+
+  SEND_BANDS_FORM_SERVER: "send_bands_from_server";
 }

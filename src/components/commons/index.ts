@@ -1,3 +1,11 @@
 export { default as Form } from "./Form";
+export { default as Table } from "./Table";
+export { default as Input } from "./Input";
+export { default as Alert } from "./Alert";
+export { default as Title } from "./Title";
+export { default as Button } from "./Button";
+export { default as Subtitle } from "./Subtitle";
+export { default as BandChart } from "./BandChart";
+export { default as StatusName } from "./StatusName";
 export { default as AvatarStatus } from "./AvatarStatus";
-export { default as ListGroup } from "./ListGroup";
+export { default as DescriptionTitle } from "./DescriptionTitle";

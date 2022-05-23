@@ -1,8 +1,6 @@
-interface BadgeProps {
-  isActive: boolean;
-}
+type TAvatarStatusProps = { isActive: boolean };
 
-function Badge({ isActive = false }: BadgeProps): React.ReactElement {
+function AvatarStatus({ isActive = false }: TAvatarStatusProps): React.ReactElement {
   return (
     <div className="relative w-10 h-10">
       <svg
@@ -22,4 +20,4 @@ function Badge({ isActive = false }: BadgeProps): React.ReactElement {
   );
 }
 
-export default Badge;
+export default AvatarStatus;

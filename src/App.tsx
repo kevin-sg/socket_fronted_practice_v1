@@ -1,12 +1,14 @@
 import { HomePage } from "@/pages";
-import { UserProdiver } from "@/context";
+import { SocketProvider, UserProdiver } from "@/context";
 
 function App() {
   return (
     <div>
-      <UserProdiver>
-        <HomePage />
-      </UserProdiver>
+      <SocketProvider>
+        <UserProdiver>
+          <HomePage />
+        </UserProdiver>
+      </SocketProvider>
     </div>
   );
 }

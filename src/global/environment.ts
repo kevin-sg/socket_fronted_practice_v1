@@ -1,7 +1,7 @@
-interface EnvironmentVariables {
+interface IEnvironmentVariables {
   HOST_SERVER: string;
 }
 
-export const environmentVariables: EnvironmentVariables = {
+export const environmentVariables: IEnvironmentVariables = {
   HOST_SERVER: import.meta.env.VITE_APP_HOST,
 };
