@@ -23,6 +23,10 @@
 Doc: [socket.io](https://socket.io/) <br/>
 Doc: [chart.js](https://www.chartjs.org/)
 
+## Server
+
+Github: [server](https://github.com/kevin-sg/socket_server_practice_v1.git)
+
 ## How To Use
 
 To clone and run this application, you'll need Git and Node.js (which comes with yarn) installed on your computer. From your command line:
