@@ -2,7 +2,7 @@
 
 <div>
   <h2>:desktop_computer: Desktop</h2>
-  <img align="center" width="60%" src="screenshot/Socket.ioApp.png">
+  <img align="center" width="80%" src="screenshot/Socket.ioApp.png">
 </div>
 
 ## Technologies
@@ -20,8 +20,8 @@
 
 ## Guide
 
-Socket.io: [socket.io](https://socket.io/) <br/>
-Chart.js: [chart.js](https://www.chartjs.org/)
+Doc: [socket.io](https://socket.io/) <br/>
+Doc: [chart.js](https://www.chartjs.org/)
 
 ## How To Use
 
