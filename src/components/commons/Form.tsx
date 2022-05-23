@@ -30,7 +30,6 @@ function Form(): React.ReactElement {
     ev.preventDefault();
     if (Object.values(formData).includes("")) return;
 
-    console.log("message: ", formData);
     socket.emit(socketKeyEvents.MESSAGE_TO_SERVER, formData);
     handleReset();
   }
@@ -40,7 +39,6 @@ function Form(): React.ReactElement {
       socket.on(socketKeyEvents.CONNECTION, () => setIsConnected(true));
       socket.on(socketKeyEvents.DISCONNECT, () => setIsConnected(false));
       socket.on(socketKeyEvents.MESSAGE_FROM_SERVER, (data: ListMessage) => {
-        console.log(socketKeyEvents.MESSAGE_FROM_SERVER, ":", data);
         setUserData((prev) => ({
           ...prev,
           isActive: isConnected,
