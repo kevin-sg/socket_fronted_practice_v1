@@ -1,19 +1,27 @@
-# SOCKET.IO CLIENT
+# SOCKET.IO - CHART.JS
+
+<div>
+  <h2>:desktop_computer: Desktop</h2>
+  <img align="center" width="60%" src="screenshot/Socket.ioApp.png">
+</div>
 
 ## Technologies
 
-- React.js
-- Vite.js
+- React
+- Vite
 - Typescript
+- Chart.js
 - Socket.io-client
+- Tailwindcss
 
 ## Formatter
 
 - Prettier
 
-## Guide Socket.io
+## Guide
 
-Doc: [socket.io](https://socket.io/)
+Socket.io: [socket.io](https://socket.io/) <br/>
+Chart.js: [chart.js](https://www.chartjs.org/)
 
 ## How To Use
 
